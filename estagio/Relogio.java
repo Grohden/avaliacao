@@ -7,13 +7,16 @@ import java.util.GregorianCalendar;
  * porem não há nescessidade neste caso.
  */
 public class Relogio {
-	/* Constantes para ajuda nos calculos */
-	private static final int anguloPorHora=30; /*360 graus divididos em 12 horas = 30 graus/hora*/
-	private static final float anguloPorMinuto=3; /*15 graus a cada 5 minutos, 3 graus a cada 1 minuto.*/
+	/* Constantes para ajuda nos calculos 
+	 * Usei byte pois aloca 8 bits, e isso ja é o bastante visto que
+	 * o numero maximo de 8 bits é 255.
+	 */
+	private static final byte anguloPorHora=30; /*360 graus divididos em 12 horas = 30 graus/hora*/
+	private static final byte anguloPorMinuto=3; /*15 graus a cada 5 minutos, 3 graus a cada 1 minuto.*/
 
 	
 	/**
-	 * Retorna o angulo não convexo entre os ponteiros
+	 * Retorna o angulo entre os ponteiros (não sendo nescessariamenteo angulo convexo)
 	 * dos minutos e das horas do horário local em graus.
 	 *
 	 * @param  horario calendario gregoriano contendo a hora e minuto a ser calculado.
@@ -31,8 +34,8 @@ public class Relogio {
 		 * adicionando a linha abaixo no respectivo calculo das horas resolve. 
 		 * +((minutos*anguloPorHora)/60);
 		 */
-		double anguloPonteiroHoras=(anguloPorHora*horas); 
-		double anguloPonteiroMinutos=anguloPorMinuto*minutos;
+		float anguloPonteiroHoras=(anguloPorHora*horas); 
+		float anguloPonteiroMinutos=anguloPorMinuto*minutos;
 		
 		long anguloEntreOsPonteiros=(long) Math.abs(anguloPonteiroMinutos-anguloPonteiroHoras);		
 		return anguloEntreOsPonteiros;
