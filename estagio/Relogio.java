@@ -18,17 +18,16 @@ public class Relogio {
 	 * Aparentemente a descriçao da prova esta errada
 	 * Quando o horario for 00:15 o angulo dos ponteiros sera 90 graus
 	 * com 00:59 minutos teriamos um angulo de 177 graus no caso acima. (nao considerando movimento do pnteiro das horas em relaçao aos minutos)
-	 * Caso seja assim, entao o "circulo" teria so 180 graus, e o calculo
+	 * Caso seja assim, entao o "circulo(??)" teria so 180 graus, e o calculo
 	 * do anguloPorHora seria  180/12.
 	 * O calculo da variavel abaixo deveria ser feito como 360 graus / 60 minutos
-	 * Mas como nao sei se foi proposital, vou deixar o calculo como:
-	 * 15 graus a cada 5 minutos, 3 graus a cada 1 minuto.
+	 * Nao sei se foi proposital, entao deixarei o correto.
 	 */
-	private static final byte anguloPorMinuto=3; 
+	private static final byte anguloPorMinuto=6; 
 
 	
 	/**
-	 * Retorna o angulo entre os ponteiros (não sendo nescessariamenteo angulo convexo)
+	 * Retorna o angulo entre os ponteiros (não sendo nescessariamente o angulo convexo)
 	 * dos minutos e das horas do horário local em graus.
 	 *
 	 * @param  horario calendario gregoriano contendo a hora e minuto a ser calculado.
