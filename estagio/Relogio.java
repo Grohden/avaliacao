@@ -13,17 +13,17 @@ public class Relogio {
 	 *
 	 * 360 graus divididos em 12 horas = 30 graus/hora 
 	 */
-	private static final byte anguloPorHora=30; 
+	private static final byte ANGULO_POR_HORA=30; 
 	/*
 	 * Aparentemente a descriçao da prova esta errada
 	 * Quando o horario for 00:15 o angulo dos ponteiros sera 90 graus
 	 * com 00:59 minutos teriamos um angulo de 177 graus no caso acima. (nao considerando movimento do pnteiro das horas em relaçao aos minutos)
 	 * Caso seja assim, entao o "circulo(??)" teria so 180 graus, e o calculo
-	 * do anguloPorHora seria  180/12.
+	 * do ANGULO_POR_HORA seria  180/12.
 	 * O calculo da variavel abaixo deveria ser feito como 360 graus / 60 minutos
 	 * Nao sei se foi proposital, entao deixarei o correto.
 	 */
-	private static final byte anguloPorMinuto=6; 
+	private static final byte ANGULO_POR_MINUTO=6; 
 
 	
 	/**
@@ -43,10 +43,10 @@ public class Relogio {
 		 * Caso fosse nescessario calcular o exato angulo 
 		 * levando os minutos em consideraçao para o calculo
 		 * adicionando a linha abaixo no respectivo calculo das horas resolve. 
-		 * +((minutos*anguloPorHora)/60);
+		 * +((minutos*ANGULO_POR_HORA)/60);
 		 */
-		float anguloPonteiroHoras=(anguloPorHora*horas); 
-		float anguloPonteiroMinutos=anguloPorMinuto*minutos;
+		float anguloPonteiroHoras=(ANGULO_POR_HORA*horas); 
+		float anguloPonteiroMinutos=ANGULO_POR_MINUTO*minutos;
 		
 		long anguloEntreOsPonteiros=(long) Math.abs(anguloPonteiroMinutos-anguloPonteiroHoras);		
 		return anguloEntreOsPonteiros;
